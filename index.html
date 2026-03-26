@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mein Lebenslauf | Portfolio</title>
+    <style>
+        /* ОСНОВНІ СТИЛІ */
+        :root {
+            --primary: #f39c12; 
+            --dark: #2c3e50;
+            --light: #f4f7f6;
+            --text: #333;
+            --line: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            margin: 0;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h2.section-title {
+            text-align: center;
+            margin: 50px 0 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        h2.section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+            margin: 10px auto;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: var(--light);
+            padding: 80px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-content { flex: 1; }
+        .hero-image { flex: 1; text-align: right; }
+        .hero-image img {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .hero-content h1 { font-size: 3.5rem; margin: 0; color: var(--dark); }
+        .hero-content h3 { color: var(--primary); font-size: 1.5rem; margin-top: 0; }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            margin-left: 10px;
+        }
+
+        .btn:hover { opacity: 0.8; transform: translateY(-2px); }
+
+        /* TIMELINE (Work & Education) */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            border-left: 2px solid var(--line);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item .dot {
+            position: absolute;
+            left: -41px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border: 3px solid var(--primary);
+            border-radius: 50%;
+        }
+
+        .date { font-weight: bold; color: var(--primary); }
+        .download-link { color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: bold; }
+
+        /* SKILLS / PROGRESS BARS */
+        .skills-container h3 { margin-top: 30px; border-bottom: 1px solid var(--line); padding-bottom: 5px; }
+        .skill-item { margin-bottom: 15px; }
+        .skill-info { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 0.9rem; }
+        .progress-bg { background: #eee; height: 10px; border-radius: 5px; overflow: hidden; }
+        .progress-fill { background: var(--primary); height: 100%; border-radius: 5px; }
+/* SLIDER */
+        .slider-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            scroll-snap-type: x mandatory;
+            padding: 20px 0;
+        }
+        .slide {
+            min-width: calc(50% - 10px);
+            scroll-snap-align: start;
+            background: #fff;
+            border: 1px solid var(--line);
+            padding: 15px;
+            text-align: center;
+        }
+        .slide img { width: 100%; height: auto; border-radius: 3px; }
+
+        /* ADAPTIVE */
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .hero .container { flex-direction: column-reverse; text-align: center; }
+            .hero-image { margin-bottom: 30px; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .btn-outline { margin-left: 0; margin-top: 10px; }
+            .slide { min-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <p>Hallo, ich bin</p>
+                <h1>Yuliia Moiseienko</h1>
+                <h3>Junior Manager | Handel & Logistik</h3>
+                <p>Ich bin ein zielorientierter Mensch mit theoretischen Kenntnissen im Handel und in der Logistik. Bereit für neue Herausforderungen in Ihrem Team.</p>
+                <a href="lebenslauf.pdf" class="btn" download>Lebenslauf PDF</a>
+                <a href="bachelor.pdf" class="btn btn-outline" download>Bachelor Diplom</a>
+            </div>
+            <div class="hero-image">
+                <img src="photo.jpg" alt="Profilfoto">
+            </div>
+        </div>
+    </header>
+
+    <section class="container">
+        <h2 class="section-title">Mein Profil</h2>
+        <div class="grid-2">
+            <div class="timeline">
+                <h3>Berufserfahrung</h3>
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <span class="date">12/2024 - Heute</span>
+                    <h4>Küchenhilfe</h4>
+                    <p>IRLE Brauerei | Siegen</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <span class="date">02/2023 - 11/2024</span>
+                    <h4>Aushilfe</h4>
+                    <p>Bim Käs / IRLE Brauerei | Siegen</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <span class="date">08/2021 - 05/2022</span>
+                    <h4>Importmanager</h4>
+                    <p>SEA Electronics Ukraine | Kyjiw, Ukraine</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <span class="date">05/2021 - 08/2021</span>
+                    <h4>Importmanager</h4>
+                    <p>ATMA | Kyjiw, Ukraine</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <span class="date">02/2020 - 02/2021</span>
+                    <h4>Lagerlogistischer Operator in C1</h4>
+                    <p>DSV Logistics Ukraine | Kyjiw, Ukraine</p>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <h3>Bildungsweg</h3>
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <span class="date">2023 - 2024</span>
+                    <h4>Ohne Abschluss | Informatik</h4>
+                    <p>Siegen Universität | Siegen</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <span class="date">2017 - 2021</span>
+                    <h4>Bachelor of Science</h4>
+                    <p>Kyjiw Nationale Wadym-Hetman-Wirtschaftsuniversität (KNEU) | Ukraine</p>
+                    <a href="bachelor.pdf" class="download-link" download>⬇ Zeugnis herunterladen</a>
+                </div>
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <span class="date">2015 - 2017</span>
+                    <h4>Schule</h4>
+                    <p>Zentralukrainisches wissenschaftliches Lyzeum, Kropywnyzkyj | Ukraine</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <span class="date">2006 - 2015</span>
+                    <h4>Schule</h4>
+                    <p>Schule №3, Switlowodsk | Ukraine</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 class="section-title">Kenntnisse & Sprachen</h2>
+        <div class="grid-2">
+            <div class="skills-container">
+                <h3>EDV & besondere Kenntnisse</h3>
+                
+                <div class="skill-item">
+                    <div class="skill-info"><span>MS Office (Word, Excel, PPT, Access)</span><span>Tiefe Kenntnisse</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 90%;"></div></div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-info"><span>SQL, HTML, Python</span><span>Grundkenntnisse</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 40%;"></div></div>
+                </div>
+
+                <div class="skill-item" style="margin-top: 20px; padding-top: 10px; border-top: 1px dashed var(--line);">
+                    <div class="skill-info">
+                        <span style="font-weight: bold;">🚗 Führerschein:</span>
+                        <span>Klasse B (Pkw)</span>
+                    </div>
+                </div>
+            </div>
+<div class="skills-container">
+                <h3>Sprachen</h3>
+                
+                <div class="skill-item">
+                    <div class="skill-info"><span>Ukrainisch / Russisch</span><span>Muttersprache (100%)</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 100%;"></div></div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-info"><span>Deutsch</span><span>C2 (Zertifikat)</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 98%;"></div></div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-info"><span>Englisch</span><span>B2 (Zertifikat)</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 75%;"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 class="section-title">Zertifikate</h2>
+        <div class="slider-container">
+            <div class="slide">
+                <img src="DSH.pdf" alt="C2 Zertifikat">
+                <p>DSH3-Zertifikat C2</p>
+            </div>
+            <div class="slide">
+                <img src="IELTS.pdf" alt="B2 Zertifikat">
+                <p>IELTS Academic B2</p>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: var(--dark); color: white; padding: 40px 0; margin-top: 50px; text-align: center;">
+        <div class="container">
+            <h3>Kontaktieren Sie mich</h3>
+            <p>E-Mail: jmoiseienko08@gmail.com | Tel: +49 1523 7218503</p>
+            <p>© 2026 Yuliia Moiseienko</p>
+        </div>
+    </footer>
+
+</body>
+</html>
